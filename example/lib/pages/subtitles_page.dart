@@ -31,6 +31,9 @@ class _SubtitlesPageState extends State<SubtitlesPage> {
         print("Current subtitle line: " +
             _betterPlayerController.renderedSubtitle.toString());
       }
+      if(event.betterPlayerEventType == BetterPlayerEventType.initialized){
+        _betterPlayerController.disableSubtitles();
+      }
     });
     _setupDataSource();
     super.initState();

@@ -379,6 +379,9 @@ bool _remoteCommandsInitialized = false;
             [self setupRemoteNotification:player];
             [player play];
             result(nil);
+        } else if ([@"disableSubtitles" isEqualToString:call.method]) {
+            [player disableSubtitles];
+            result(nil);
         } else if ([@"position" isEqualToString:call.method]) {
             result(@([player position]));
         } else if ([@"absolutePosition" isEqualToString:call.method]) {

@@ -155,6 +155,14 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
   }
 
   @override
+  Future<void> disableSubtitles(int? textureId) {
+    return _channel.invokeMethod<void>(
+      'disableSubtitles',
+      <String, dynamic>{'textureId': textureId},
+    );
+  }
+
+  @override
   Future<void> setVolume(int? textureId, double volume) {
     return _channel.invokeMethod<void>(
       'setVolume',

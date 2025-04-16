@@ -459,6 +459,10 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
     await _applyPlayPause();
   }
 
+  Future<void> disableSubtitles() async {
+    await _videoPlayerPlatform.disableSubtitles(textureId);
+  }
+
   Future<void> _applyLooping() async {
     if (!_created || _isDisposed) {
       return;

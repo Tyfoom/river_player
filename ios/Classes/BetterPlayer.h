@@ -60,6 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)clear;
 - (void)disposeSansEventChannel;
 - (void)dispose;
+- (void)disableSubtitles;
 @end
 
 NS_ASSUME_NONNULL_END

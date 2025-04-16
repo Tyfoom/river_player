@@ -541,6 +541,27 @@ static inline CGFloat radiansToDegrees(CGFloat radians) {
     _isLooping = isLooping;
 }
 
+
+- (void)disableSubtitles {
+    AVPlayerItem *currentItem = _player.currentItem;
+
+    if (!currentItem) {
+        NSLog(@"No current item found");
+        return;
+    }
+
+    AVMediaSelectionGroup *group = [currentItem.asset mediaSelectionGroupForMediaCharacteristic:AVMediaCharacteristicLegible];
+
+    if (!group) {
+        NSLog(@"Subtitle group not found");
+        return;
+    }
+
+    [currentItem selectMediaOption:nil inMediaSelectionGroup:group];
+
+    NSLog(@"Subtitles turned off");
+}
+
 - (void)setVolume:(double)volume {
     _player.volume = (float)((volume < 0.0) ? 0.0 : ((volume > 1.0) ? 1.0 : volume));
 }
